@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAT ME | Satisfy Your Cravings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cursor follower -->
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-eat">EAT</span>
+            <span class="logo-me">ME</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#catering">Catering</a></li>
+            <li><a href="#cocktails">Cocktails</a></li>
+            <li><a href="#order">Order</a></li>
+        </ul>
+        <button class="nav-cta">Get a Taste</button>
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-text">INDULGE</div>
+        <div class="hero-content">
+            <div class="hero-tagline">Don't resist temptation</div>
+            <h1 class="hero-title">
+                <span class="title-line">EAT</span>
+                <span class="title-line title-me">ME</span>
+            </h1>
+            <p class="hero-subtitle">Food so good, it's <em>sinful</em></p>
+            <div class="hero-ctas">
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+                <a href="#order" class="btn btn-secondary">Order Now</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to discover</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <div class="image-frame">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">🍽️</span>
+                    </div>
+                </div>
+                <div class="about-float-text">Bite Me</div>
+            </div>
+            <div class="about-content">
+                <span class="section-label">Our Story</span>
+                <h2>We Make Food You <br><span class="highlight">Can't Say No To</span></h2>
+                <p class="about-text">
+                    At EAT ME, we believe food should be an experience that awakens all your senses. 
+                    Our chefs craft dishes designed to seduce your palate and leave you craving more.
+                </p>
+                <p class="about-text">
+                    From intimate dinners to wild parties, we've got the menu to match your appetite—
+                    <em>no matter how insatiable</em>.
+                </p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">5K+</span>
+                        <span class="stat-label">Satisfied Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Sinful Dishes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Events Catered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="services-header">
+            <span class="section-label">What We Offer</span>
+            <h2>Three Ways to <span class="highlight">Satisfy</span></h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-service="regular">
+                <div class="service-icon">🔥</div>
+                <h3>Regular Orders</h3>
+                <p>Your weekly dose of pleasure. Subscribe to our meal plans and never go hungry again.</p>
+                <span class="service-tagline">"Come back for more"</span>
+                <a href="#order" class="service-link">
+                    <span>Start Ordering</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="service-card featured" data-service="catering">
+                <div class="service-badge">Most Popular</div>
+                <div class="service-icon">🎉</div>
+                <h3>Catering</h3>
+                <p>Make your events unforgettable. We bring the feast to you—intimate gatherings or grand affairs.</p>
+                <span class="service-tagline">"The main course at every party"</span>
+                <a href="#catering" class="service-link">
+                    <span>Book Catering</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="service-card" data-service="cocktails">
+                <div class="service-icon">🍸</div>
+                <h3>Cocktails</h3>
+                <p>Drinks that get the party started. Our mixologists craft liquid seduction in every glass.</p>
+                <span class="service-tagline">"Get tipsy with us"</span>
+                <a href="#cocktails" class="service-link">
+                    <span>View Cocktails</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="menu-bg-text">DEVOUR</div>
+        <div class="menu-header">
+            <span class="section-label">Our Menu</span>
+            <h2>Taste the <span class="highlight">Temptation</span></h2>
+        </div>
+        <div class="menu-categories">
+            <button class="menu-tab active" data-category="all">All</button>
+            <button class="menu-tab" data-category="starters">Foreplay</button>
+            <button class="menu-tab" data-category="mains">Main Attraction</button>
+            <button class="menu-tab" data-category="desserts">Sweet Endings</button>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-item" data-category="starters">
+                <div class="menu-item-image">
+                    <span>🥗</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Tease Me Salad</h4>
+                        <span class="price">$14</span>
+                    </div>
+                    <p>Fresh greens, pomegranate, goat cheese, honey drizzle</p>
+                    <span class="spice-level">🌶️</span>
+                </div>
+            </div>
+            <div class="menu-item" data-category="starters">
+                <div class="menu-item-image">
+                    <span>🍤</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Naughty Shrimp</h4>
+                        <span class="price">$18</span>
+                    </div>
+                    <p>Garlic butter shrimp, chili flakes, fresh herbs</p>
+                    <span class="spice-level">🌶️🌶️</span>
+                </div>
+            </div>
+            <div class="menu-item" data-category="mains">
+                <div class="menu-item-image">
+                    <span>🥩</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Sinful Ribeye</h4>
+                        <span class="price">$42</span>
+                    </div>
+                    <p>28-day aged beef, truffle butter, roasted bone marrow</p>
+                    <span class="spice-level">🌶️🌶️🌶️</span>
+                </div>
+            </div>
+            <div class="menu-item" data-category="mains">
+                <div class="menu-item-image">
+                    <span>🍝</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Forbidden Pasta</h4>
+                        <span class="price">$28</span>
+                    </div>
+                    <p>Fresh tagliatelle, black truffle, parmesan cream</p>
+                    <span class="spice-level">🌶️</span>
+                </div>
+            </div>
+            <div class="menu-item" data-category="mains">
+                <div class="menu-item-image">
+                    <span>🐟</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Seductive Salmon</h4>
+                        <span class="price">$34</span>
+                    </div>
+                    <p>Miso-glazed salmon, sake reduction, wasabi caviar</p>
+                    <span class="spice-level">🌶️🌶️</span>
+                </div>
+            </div>
+            <div class="menu-item" data-category="desserts">
+                <div class="menu-item-image">
+                    <span>🍫</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Guilty Pleasure</h4>
+                        <span class="price">$16</span>
+                    </div>
+                    <p>Molten chocolate cake, raspberry coulis, vanilla ice cream</p>
+                    <span class="spice-level">❤️</span>
+                </div>
+            </div>
+            <div class="menu-item" data-category="desserts">
+                <div class="menu-item-image">
+                    <span>🍓</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Strawberry Affair</h4>
+                        <span class="price">$14</span>
+                    </div>
+                    <p>Fresh strawberries, champagne sabayon, chocolate shavings</p>
+                    <span class="spice-level">❤️❤️</span>
+                </div>
+            </div>
+            <div class="menu-item" data-category="desserts">
+                <div class="menu-item-image">
+                    <span>🍰</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h4>Red Velvet Sin</h4>
+                        <span class="price">$12</span>
+                    </div>
+                    <p>House-made red velvet, cream cheese frosting, edible rose</p>
+                    <span class="spice-level">❤️❤️❤️</span>
+                </div>
+            </div>
+        </div>
+        <div class="menu-cta">
+            <a href="#order" class="btn btn-primary">Order Full Menu</a>
+        </div>
+    </section>
+
+    <!-- Catering Section -->
+    <section id="catering" class="catering">
+        <div class="catering-container">
+            <div class="catering-content">
+                <span class="section-label">Catering Services</span>
+                <h2>Let Us <span class="highlight">Handle</span> <br>Your Party</h2>
+                <p>From corporate events to private celebrations, we bring the heat. Our catering team delivers an experience that'll have your guests talking for weeks.</p>
+                <ul class="catering-features">
+                    <li>
+                        <span class="feature-icon">✓</span>
+                        <span>Custom menus tailored to your desires</span>
+                    </li>
+                    <li>
+                        <span class="feature-icon">✓</span>
+                        <span>Full-service staff & setup</span>
+                    </li>
+                    <li>
+                        <span class="feature-icon">✓</span>
+                        <span>Events from 20 to 500+ guests</span>
+                    </li>
+                    <li>
+                        <span class="feature-icon">✓</span>
+                        <span>Dietary accommodations available</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+            </div>
+            <div class="catering-gallery">
+                <div class="gallery-item large">
+                    <div class="gallery-placeholder">
+                        <span>🎂</span>
+                        <div class="gallery-label">Private Events</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span>🍾</span>
+                        <div class="gallery-label">Corporate</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span>💒</span>
+                        <div class="gallery-label">Weddings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cocktails Section -->
+    <section id="cocktails" class="cocktails">
+        <div class="cocktails-bg-text">SIP</div>
+        <div class="cocktails-header">
+            <span class="section-label">Bar Services</span>
+            <h2>Liquid <span class="highlight">Seduction</span></h2>
+            <p>Our mixologists craft drinks that'll make you weak in the knees</p>
+        </div>
+        <div class="cocktails-showcase">
+            <div class="cocktail-card">
+                <div class="cocktail-image">
+                    <span>🍹</span>
+                </div>
+                <h4>The One Night Stand</h4>
+                <p>Vodka, passion fruit, champagne float</p>
+                <span class="cocktail-price">$16</span>
+            </div>
+            <div class="cocktail-card featured">
+                <div class="cocktail-badge">Signature</div>
+                <div class="cocktail-image">
+                    <span>🥃</span>
+                </div>
+                <h4>Eat Me Old Fashioned</h4>
+                <p>Bourbon, cherry bitters, smoked orange</p>
+                <span class="cocktail-price">$18</span>
+            </div>
+            <div class="cocktail-card">
+                <div class="cocktail-image">
+                    <span>🍸</span>
+                </div>
+                <h4>Dirty Intentions</h4>
+                <p>Gin, dry vermouth, blue cheese olives</p>
+                <span class="cocktail-price">$15</span>
+            </div>
+            <div class="cocktail-card">
+                <div class="cocktail-image">
+                    <span>🧉</span>
+                </div>
+                <h4>The Morning After</h4>
+                <p>Espresso, Kahlua, Irish cream</p>
+                <span class="cocktail-price">$14</span>
+            </div>
+        </div>
+        <div class="cocktails-cta">
+            <p>Need a bartender for your event?</p>
+            <a href="#contact" class="btn btn-secondary">Book Bar Services</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-header">
+            <span class="section-label">What They Say</span>
+            <h2>Satisfied <span class="highlight">Appetites</span></h2>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The name says it all. EAT ME catered our wedding and guests are STILL talking about it. Absolutely unforgettable."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JM</div>
+                    <div class="author-info">
+                        <span class="author-name">Jessica M.</span>
+                        <span class="author-title">Wedding Client</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"I subscribe to their weekly meals and honestly, it's the highlight of my week. Every dish is pure seduction."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DK</div>
+                    <div class="author-info">
+                        <span class="author-name">David K.</span>
+                        <span class="author-title">Regular Customer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Their cocktail service made our corporate party legendary. The bartenders know their craft and the drinks? Sinfully good."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SR</div>
+                    <div class="author-info">
+                        <span class="author-name">Sarah R.</span>
+                        <span class="author-title">Event Planner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="order">
+        <div class="order-container">
+            <div class="order-info">
+                <span class="section-label">Ready to Order?</span>
+                <h2>Feed Your <span class="highlight">Desires</span></h2>
+                <p>Choose your pleasure—one-time indulgence or regular satisfaction.</p>
+                <div class="order-options">
+                    <div class="order-option">
+                        <input type="radio" name="order-type" id="one-time" value="one-time" checked>
+                        <label for="one-time">
+                            <span class="option-title">One-Time Order</span>
+                            <span class="option-desc">When the mood strikes</span>
+                        </label>
+                    </div>
+                    <div class="order-option">
+                        <input type="radio" name="order-type" id="subscription" value="subscription">
+                        <label for="subscription">
+                            <span class="option-title">Weekly Subscription</span>
+                            <span class="option-desc">Keep the pleasure coming</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="order-form-container">
+                <form class="order-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="What should we call you?">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="For confirmation only">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="We'll text when ready">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Delivery Date</label>
+                            <input type="date" id="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <input type="text" id="address" placeholder="Where should we come?">
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Special Requests</label>
+                        <textarea id="notes" rows="3" placeholder="Tell us your deepest food desires..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-header">
+            <h2>Get In <span class="highlight">Touch</span></h2>
+            <p>Questions? Cravings? We're here.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h4>Location</h4>
+                <p>123 Temptation Street<br>Foodie District, FC 12345</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h4>Call Us</h4>
+                <p>(555) EAT-MEEE<br>Mon-Sun: 10am - 10pm</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h4>Email</h4>
+                <p>hello@eatme.com<br>catering@eatme.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-eat">EAT</span>
+                    <span class="logo-me">ME</span>
+                </div>
+                <p class="footer-tagline">Satisfy your cravings</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h5>Navigate</h5>
+                    <a href="#home">Home</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#catering">Catering</a>
+                    <a href="#cocktails">Cocktails</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <a href="#order">Order Food</a>
+                    <a href="#catering">Book Catering</a>
+                    <a href="#cocktails">Bar Services</a>
+                    <a href="#contact">Get Quote</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <h5>Follow the Flavor</h5>
+                <div class="social-links">
+                    <a href="#" class="social-link">IG</a>
+                    <a href="#" class="social-link">FB</a>
+                    <a href="#" class="social-link">TW</a>
+                    <a href="#" class="social-link">TK</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EAT ME. All rights reserved. <span class="footer-wink">😏</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
