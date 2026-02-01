@@ -104,7 +104,7 @@ function initMobileMenu() {
                     top: 70px;
                     left: 0;
                     right: 0;
-                    background: rgba(10, 10, 10, 0.98);
+                    background: rgba(28, 20, 16, 0.98);
                     padding: 2rem;
                     display: none;
                     flex-direction: column;
@@ -298,15 +298,16 @@ function showNotification(message, type = 'info') {
         position: fixed;
         bottom: 2rem;
         right: 2rem;
-        background: ${type === 'success' ? '#E31837' : '#1A1A1A'};
-        color: white;
+        background: ${type === 'success' ? '#4A6741' : '#2A1F1A'};
+        color: #FDF6E9;
         padding: 1.5rem 2rem;
         display: flex;
         align-items: center;
         gap: 1rem;
         z-index: 10000;
         animation: slideInRight 0.5s ease;
-        box-shadow: 0 10px 40px rgba(227, 24, 55, 0.3);
+        box-shadow: 0 10px 40px rgba(229, 168, 48, 0.3);
+        border-left: 3px solid #E5A830;
     `;
     
     // Add animation keyframes
@@ -470,5 +471,5 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-console.log('%c EAT ME 😏', 'font-size: 48px; font-weight: bold; color: #E31837;');
-console.log('%c Satisfy your cravings...', 'font-size: 16px; color: #888;');
+console.log('%c EAT ME 😏', 'font-size: 48px; font-weight: bold; color: #E5A830;');
+console.log('%c Satisfy your cravings...', 'font-size: 16px; color: #4A6741;');
