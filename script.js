@@ -287,7 +287,7 @@ function initOrderModal() {
     
     // Generate WhatsApp order link
     function updateWhatsAppLink(extras, total) {
-        const phoneNumber = '225555708866'; // +225 555708866
+        const phoneNumber = '2250555708866'; // +225 0555708866
         let message = `Hi! I'd like to order:\n\n`;
         message += `*${currentItem.quantity}x ${currentItem.name}*\n`;
         message += `Day: ${currentItem.day}\n`;
@@ -313,7 +313,7 @@ function initOrderModal() {
     if (orderWhatsApp) {
         orderWhatsApp.addEventListener('click', (e) => {
             e.preventDefault();
-            const phoneNumber = '225555708866';
+            const phoneNumber = '2250555708866';
             let message = `Hi! I'd like to order:\n\n`;
             message += `*${currentItem.quantity}x ${currentItem.name}*\n`;
             message += `Day: ${currentItem.day}\n`;
