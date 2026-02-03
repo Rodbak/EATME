@@ -1849,11 +1849,14 @@ em {
     font-size: 1rem;
     background: #25D366;
     border-color: #25D366;
+    cursor: pointer !important;
+    pointer-events: auto;
 }
 
 .btn-order:hover {
     background: #128C7E;
     border-color: #128C7E;
+    transform: scale(1.02);
 }
 
 /* Make menu items clickable */

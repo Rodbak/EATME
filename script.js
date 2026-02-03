@@ -287,7 +287,7 @@ function initOrderModal() {
     
     // Generate WhatsApp order link
     function updateWhatsAppLink(extras, total) {
-        const phoneNumber = '22505557708866'; // From the logo
+        const phoneNumber = '22505557708866'; // From the logo: +225 05 55 708 866
         let message = `Hi! I'd like to order:\n\n`;
         message += `*${currentItem.quantity}x ${currentItem.name}*\n`;
         message += `Day: ${currentItem.day}\n`;
@@ -300,8 +300,48 @@ function initOrderModal() {
         message += `Please confirm availability. Thank you!`;
         
         const encodedMessage = encodeURIComponent(message);
-        orderWhatsApp.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        orderWhatsApp.target = '_blank';
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        if (orderWhatsApp) {
+            orderWhatsApp.href = whatsappUrl;
+            orderWhatsApp.setAttribute('target', '_blank');
+            orderWhatsApp.setAttribute('rel', 'noopener noreferrer');
+        }
+    }
+    
+    // WhatsApp button click handler
+    if (orderWhatsApp) {
+        orderWhatsApp.addEventListener('click', (e) => {
+            e.preventDefault();
+            const phoneNumber = '22505557708866';
+            let message = `Hi! I'd like to order:\n\n`;
+            message += `*${currentItem.quantity}x ${currentItem.name}*\n`;
+            message += `Day: ${currentItem.day}\n`;
+            
+            const selectedExtras = [];
+            extraCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    selectedExtras.push(cb.value.replace('-', ' '));
+                }
+            });
+            
+            if (selectedExtras.length > 0) {
+                message += `Extras: ${selectedExtras.join(', ')}\n`;
+            }
+            
+            const extrasTotal = Array.from(extraCheckboxes)
+                .filter(cb => cb.checked)
+                .reduce((sum, cb) => sum + parseInt(cb.dataset.price), 0);
+            const total = (currentItem.price + extrasTotal) * currentItem.quantity;
+            
+            message += `\n*Total: GH₵ ${total}*\n\n`;
+            message += `Please confirm availability. Thank you!`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        });
     }
 }
 
