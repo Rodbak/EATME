@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initFormHandling();
     initMobileMenu();
+    initOrderModal();
 });
 
 // ===== Custom Cursor =====
@@ -145,6 +146,162 @@ function closeMobileMenu() {
     }
     if (menuBtn) {
         menuBtn.classList.remove('active');
+    }
+}
+
+// ===== Order Modal =====
+function initOrderModal() {
+    const modal = document.getElementById('orderModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalOverlay = modal?.querySelector('.modal-overlay');
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    // Modal elements
+    const modalImage = document.getElementById('modalImage');
+    const modalItemName = document.getElementById('modalItemName');
+    const modalItemPrice = document.getElementById('modalItemPrice');
+    const modalDay = document.getElementById('modalDay');
+    const totalPrice = document.getElementById('totalPrice');
+    const qtyValue = document.getElementById('qtyValue');
+    const qtyMinus = document.getElementById('qtyMinus');
+    const qtyPlus = document.getElementById('qtyPlus');
+    const orderWhatsApp = document.getElementById('orderWhatsApp');
+    const extraCheckboxes = document.querySelectorAll('.extra-option input');
+    
+    let currentItem = {
+        name: '',
+        price: 0,
+        day: '',
+        quantity: 1
+    };
+    
+    // Open modal when clicking menu item
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const itemName = item.querySelector('h4').textContent;
+            const itemPrice = item.querySelector('.price').textContent;
+            const priceNumber = parseInt(itemPrice.replace(/[^0-9]/g, ''));
+            const itemImage = item.querySelector('.menu-img');
+            const itemEmoji = item.querySelector('.menu-item-image span');
+            
+            // Get the day from parent section
+            const daySection = item.closest('.day-section');
+            const day = daySection ? daySection.querySelector('.day-title').textContent : '';
+            
+            // Set current item
+            currentItem.name = itemName;
+            currentItem.price = priceNumber;
+            currentItem.day = day;
+            currentItem.quantity = 1;
+            
+            // Update modal content
+            modalItemName.textContent = itemName;
+            modalItemPrice.textContent = itemPrice;
+            modalDay.textContent = day ? `Available on ${day}` : '';
+            qtyValue.textContent = '1';
+            
+            // Set image
+            if (itemImage) {
+                modalImage.innerHTML = `<img src="${itemImage.src}" alt="${itemName}">`;
+            } else if (itemEmoji) {
+                modalImage.innerHTML = itemEmoji.outerHTML;
+            }
+            
+            // Reset extras
+            extraCheckboxes.forEach(cb => cb.checked = false);
+            
+            // Update total
+            updateTotal();
+            
+            // Open modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+    
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeModal);
+    }
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    // Quantity controls
+    if (qtyMinus) {
+        qtyMinus.addEventListener('click', () => {
+            if (currentItem.quantity > 1) {
+                currentItem.quantity--;
+                qtyValue.textContent = currentItem.quantity;
+                updateTotal();
+            }
+        });
+    }
+    
+    if (qtyPlus) {
+        qtyPlus.addEventListener('click', () => {
+            if (currentItem.quantity < 10) {
+                currentItem.quantity++;
+                qtyValue.textContent = currentItem.quantity;
+                updateTotal();
+            }
+        });
+    }
+    
+    // Extra toppings
+    extraCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateTotal);
+    });
+    
+    // Update total price
+    function updateTotal() {
+        let extrasTotal = 0;
+        const selectedExtras = [];
+        
+        extraCheckboxes.forEach(cb => {
+            if (cb.checked) {
+                extrasTotal += parseInt(cb.dataset.price);
+                selectedExtras.push(cb.value.replace('-', ' '));
+            }
+        });
+        
+        const total = (currentItem.price + extrasTotal) * currentItem.quantity;
+        totalPrice.textContent = `GH₵ ${total}`;
+        
+        // Update WhatsApp link
+        updateWhatsAppLink(selectedExtras, total);
+    }
+    
+    // Generate WhatsApp order link
+    function updateWhatsAppLink(extras, total) {
+        const phoneNumber = '22505557708866'; // From the logo
+        let message = `Hi! I'd like to order:\n\n`;
+        message += `*${currentItem.quantity}x ${currentItem.name}*\n`;
+        message += `Day: ${currentItem.day}\n`;
+        
+        if (extras.length > 0) {
+            message += `Extras: ${extras.join(', ')}\n`;
+        }
+        
+        message += `\n*Total: GH₵ ${total}*\n\n`;
+        message += `Please confirm availability. Thank you!`;
+        
+        const encodedMessage = encodeURIComponent(message);
+        orderWhatsApp.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        orderWhatsApp.target = '_blank';
     }
 }
 
