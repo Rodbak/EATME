@@ -734,7 +734,9 @@ em {
     background: var(--brown-primary);
     border: 1px solid var(--brown-lighter);
     transition: all 0.4s var(--transition-smooth);
-    overflow: hidden;
+    overflow: visible;
+    position: relative;
+    border-radius: 12px;
 }
 
 .menu-item:hover {
@@ -1866,6 +1868,240 @@ em {
 
 .menu-item:hover {
     transform: translateY(-5px);
+}
+
+/* ===== Futuristic Floating Animations ===== */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-1deg);
+    }
+}
+
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(229, 168, 48, 0.3), 0 0 40px rgba(229, 168, 48, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(229, 168, 48, 0.5), 0 0 60px rgba(229, 168, 48, 0.2);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(229, 168, 48, 0.4));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(229, 168, 48, 0.8));
+    }
+}
+
+/* Floating Menu Items */
+.menu-item {
+    animation: floatSlow 6s ease-in-out infinite;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu-item:nth-child(1) { animation-delay: 0s; }
+.menu-item:nth-child(2) { animation-delay: 0.5s; }
+.menu-item:nth-child(3) { animation-delay: 1s; }
+.menu-item:nth-child(4) { animation-delay: 1.5s; }
+
+.menu-item:hover {
+    transform: translateY(-15px) scale(1.03);
+    animation: glow 2s ease-in-out infinite;
+    z-index: 10;
+}
+
+/* Floating Menu Images */
+.menu-item-image {
+    position: relative;
+    overflow: visible;
+}
+
+.menu-item-image img,
+.menu-item-image span {
+    animation: float 4s ease-in-out infinite;
+    transition: all 0.4s ease;
+}
+
+.menu-item:hover .menu-item-image img,
+.menu-item:hover .menu-item-image span {
+    animation: pulseGlow 1.5s ease-in-out infinite;
+    transform: scale(1.1) translateY(-10px);
+}
+
+/* Futuristic Glow Border */
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--yellow-primary), var(--green-primary), var(--yellow-primary));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(8px);
+}
+
+.menu-item:hover::before {
+    opacity: 0.6;
+}
+
+/* Floating Logo */
+.logo-image {
+    animation: float 5s ease-in-out infinite;
+}
+
+.nav-logo:hover .logo-image {
+    animation: pulseGlow 1s ease-in-out infinite;
+}
+
+/* Floating About Image */
+.about-img {
+    animation: floatSlow 7s ease-in-out infinite;
+}
+
+.image-frame:hover .about-img {
+    animation: pulseGlow 2s ease-in-out infinite;
+    transform: scale(1.05);
+}
+
+/* Futuristic Service Cards */
+.service-card {
+    animation: floatSlow 8s ease-in-out infinite;
+    position: relative;
+}
+
+.service-card:nth-child(1) { animation-delay: 0s; }
+.service-card:nth-child(2) { animation-delay: 1s; }
+.service-card:nth-child(3) { animation-delay: 2s; }
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20px;
+    background: radial-gradient(ellipse, rgba(229, 168, 48, 0.3), transparent);
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+/* Floating Cocktail Cards */
+.cocktail-card {
+    animation: floatSlow 6s ease-in-out infinite;
+}
+
+.cocktail-card:nth-child(1) { animation-delay: 0s; }
+.cocktail-card:nth-child(2) { animation-delay: 0.7s; }
+.cocktail-card:nth-child(3) { animation-delay: 1.4s; }
+.cocktail-card:nth-child(4) { animation-delay: 2.1s; }
+
+.cocktail-card:hover {
+    animation: glow 2s ease-in-out infinite;
+    transform: translateY(-15px) scale(1.05);
+}
+
+/* Glowing Day Titles */
+.day-title {
+    text-shadow: 0 0 20px rgba(229, 168, 48, 0.5);
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Futuristic Extras Section */
+.extras-section {
+    position: relative;
+    animation: glow 4s ease-in-out infinite;
+}
+
+.extra-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.extra-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(229, 168, 48, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.extra-item:hover::before {
+    left: 100%;
+}
+
+/* Futuristic Hero Elements */
+.hero-title {
+    text-shadow: 0 0 40px rgba(229, 168, 48, 0.4);
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* Neon Underline Effect */
+.highlight {
+    position: relative;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--yellow-primary);
+    box-shadow: 0 0 10px var(--yellow-primary), 0 0 20px var(--yellow-primary);
+    animation: pulseGlow 2s ease-in-out infinite;
 }
 
 @media (max-width: 480px) {

@@ -313,7 +313,7 @@ function initOrderModal() {
     if (orderWhatsApp) {
         orderWhatsApp.addEventListener('click', (e) => {
             e.preventDefault();
-            const phoneNumber = '2250555708866';
+            const phoneNumber = '2250555708866'; // +225 0555708866
             let message = `Hi! I'd like to order:\n\n`;
             message += `*${currentItem.quantity}x ${currentItem.name}*\n`;
             message += `Day: ${currentItem.day}\n`;
@@ -637,7 +637,81 @@ window.addEventListener('load', () => {
     heroElements.forEach((el, index) => {
         el.style.animationDelay = `${index * 0.2}s`;
     });
+    
+    // Initialize floating particles
+    initFloatingParticles();
 });
+
+// ===== Futuristic Floating Particles =====
+function initFloatingParticles() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    // Create particle container
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'particle-container';
+    particleContainer.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+    `;
+    hero.style.position = 'relative';
+    hero.insertBefore(particleContainer, hero.firstChild);
+    
+    // Create particles
+    for (let i = 0; i < 30; i++) {
+        createParticle(particleContainer);
+    }
+}
+
+function createParticle(container) {
+    const particle = document.createElement('div');
+    const size = Math.random() * 8 + 2;
+    const duration = Math.random() * 20 + 10;
+    const delay = Math.random() * 10;
+    const startX = Math.random() * 100;
+    
+    particle.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        background: radial-gradient(circle, rgba(229, 168, 48, 0.8), rgba(229, 168, 48, 0));
+        border-radius: 50%;
+        left: ${startX}%;
+        bottom: -20px;
+        animation: particleFloat ${duration}s linear ${delay}s infinite;
+        box-shadow: 0 0 ${size * 2}px rgba(229, 168, 48, 0.5);
+    `;
+    
+    container.appendChild(particle);
+}
+
+// Add particle animation styles
+const particleStyles = document.createElement('style');
+particleStyles.textContent = `
+    @keyframes particleFloat {
+        0% {
+            transform: translateY(0) translateX(0) scale(1);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) translateX(${Math.random() > 0.5 ? '' : '-'}${Math.random() * 100}px) scale(0.5);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(particleStyles);
 
 // ===== Easter Egg - Konami Code =====
 let konamiCode = [];
